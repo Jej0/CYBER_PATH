@@ -628,6 +628,7 @@ int main() {
   }
 
   printf("Le gagnant est le joueur %d avec %d points\n", joueur_gagnant+1, max_point);
-
+// NEW
+  free(tab);
 
 }
