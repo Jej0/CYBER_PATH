@@ -2,14 +2,14 @@ all: exec
 
 
 gen.o: gen.c header.h
-  gcc -c gen.c -o gen.o
+	gcc -c gen.c -o gen.o
 
 main.o: main.c header.h
-  gcc -c main.c -o main.o
+	gcc -c main.c -o main.o
 
 exec: gen.o main.o
-  gcc gen.o main.o -o exec
+	gcc gen.o main.o -o exec
 
 clean:
-  rm -f *.o
-  rm exec
+	rm -f *.o
+	rm exec
