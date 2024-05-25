@@ -166,7 +166,7 @@ void DeplacerRobot(char** tab, Joueur joueur_tab[], int robot, char mouvement, i
             printf("vous avez fais trop de déplacment\n");
             break;
           } else {
-            *compteur_chemin -=-1;
+            *compteur_chemin -= 1;
           }
           //reduit de 1 chaque deplacement restants
 
