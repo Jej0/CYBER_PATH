@@ -17,6 +17,6 @@ Etape 4:
 Lancer le jeu en entrant la commande :
 ./exec
 
-Etape 5:
-S'amuser (... peut-être ...)
+Etape 5 (Facultatif):
+S'amuser...
 
