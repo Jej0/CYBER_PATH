@@ -17,6 +17,17 @@ void libererTableau2D(char **tab, int ligne) {
 }
 
 void intialisationJeu(int *difficulte, int* nbr_joueur) {
+
+  printf("Les robots doivent rejoindre une cible définie aléatoirement en un minimum de mouvements. Un mouvement est un déplacement 
+en ligne droite jusqu’à ce que le robot rencontre un obstacle (un autre robot ou un mur). Les robots « glissent » donc dans une 
+direction donnée à chaque mouvement. A chaque tour, un robot est choisi aléatoirement, et une cible aléatoire également. Chaque joueur doit réfléchir au nombre de mouvements 
+nécessaires pour que le robot atteigne sa cible, uniquement en regardant la 
+grille de jeu. Une fois que tous les joueurs ont déterminé dans leur tête le nombre de mouvements, ils doivent saisir ces nombres, et c’est le joueur avec le nombre 
+de mouvements le plus faible qui doit jouer : il doit déplacer son robot en indiquant à chaque fois la direction dans la grille orthogonale (4 directions). Le programme compte le nombre de mouvements au fur et à mesure, et quand 
+le robot atteint sa cible, si le nombre de mouvements est correct, le joueur marque 1 point, sinon tous les autres joueurs marquent 1 point. Le gagnant de la partie est celui qui obtient le plus grand score à la fin d’un 
+nombre de manches fixé à l’avance.");
+printf("\n");
+  
   *difficulte = -1;
   *nbr_joueur = -1;
 
