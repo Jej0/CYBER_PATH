@@ -1,5 +1,5 @@
 # CYBER_PATH
-Jeu CyPath pour projet d'informatique de fin de Préing1
+Jeu Cyber Path pour projet d'informatique de fin de Préing1
 
 Etape 1:
 Télécharger les fichiers à partir du Github
