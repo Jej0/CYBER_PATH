@@ -1,10 +1,19 @@
 #include "header.h"
 
 
-void nettoyer_cache() {
+void nettoyerCache() {
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
+}
+
+void libererTableau2D(int **tab, int col) {
+    // Libérer chaque ligne du tableau
+    for (int i = 0; i < col; i++) {
+        free(tab[i]);
+    }
+    // Libérer le tableau de pointeurs
+    free(tab);
 }
 
 void intialisationJeu(int *difficulte, int* nbr_joueur) {
@@ -19,12 +28,12 @@ void intialisationJeu(int *difficulte, int* nbr_joueur) {
     //printf(",entrer %d\n", *nbr_joueur);
     if (*nbr_joueur <= 1 || test != 1) {
       printf("entrer un nombre supérieur à 1\n");
-      nettoyer_cache();
+      nettoyerCache();
     }
 // si tout se passe bien retourne 1 sinon retourne 0 donc recommence la boucle
   } while (*nbr_joueur <= 1 || test != 1);
 
-  nettoyer_cache();
+  nettoyerCache();
 
 
 
@@ -35,12 +44,12 @@ void intialisationJeu(int *difficulte, int* nbr_joueur) {
 
     if (*difficulte < 1 || *difficulte > 4 || test != 1) {
       printf("entrez un nombre supérieur à 1 et inférieur à 4 (1 : 2 mintues, 2 : 1 minutes, 3 : 30 secondes , 4 : 15 secondes)\n");
-      nettoyer_cache();
+      nettoyerCache();
     }
     // si tout se passe bien retourne 1 sinon retourne 0 donc recommence la boucle
   } while (*difficulte < 1 || *difficulte > 4 || test != 1);
 
-  nettoyer_cache();
+  nettoyerCache();
 
 }
 
@@ -445,13 +454,13 @@ void DeroulementPartie(int difficulte, int  temps, int nbr_joueur, char** tab, J
       test = scanf("%d", &liste_vrai_joueur[i-1]);
       if (liste_vrai_joueur[i-1] <= 0 || test != 1) {
         printf("Nombre de déplacement invalide, recommencez\n");
-        nettoyer_cache();
+        nettoyerCache();
 
       }
 
     } while (liste_vrai_joueur[i-1] <= 0 || test != 1);
 
-    nettoyer_cache();
+    nettoyerCache();
 
   }
 
@@ -493,13 +502,13 @@ void DeroulementPartie(int difficulte, int  temps, int nbr_joueur, char** tab, J
       if ((mouvement != 'z' && mouvement != 'q' && mouvement != 's' && mouvement != 'd') || test != 1) {
 printf("Mauvais déplacment\n");
         // peut pas faire autre mouvement que z q s d
-        nettoyer_cache();
+        nettoyerCache();
         
       }
     } while((mouvement != 'z' && mouvement != 'q' && mouvement != 's' && mouvement != 'd') || test != 1);
     // peut pas faire autre mouvement que z q s d
 
-    nettoyer_cache();
+    nettoyerCache();
 
     DeplacerRobot(tab, joueur_tab ,joueur_aleatoire , mouvement, ligne, colonne, &cache, cible_tab, &plus_petit_chemin);
 
@@ -629,6 +638,6 @@ int main() {
 
   printf("Le gagnant est le joueur %d avec %d points\n", joueur_gagnant+1, max_point);
 // NEW
-  free(tab);
+  libererTableau2D(tab, ligne);
 
 }
