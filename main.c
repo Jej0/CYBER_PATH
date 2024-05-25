@@ -452,6 +452,7 @@ void DeroulementPartie(int difficulte, int  temps, int nbr_joueur, char** tab, J
 
     int test;
     do {
+      system("clear");
       printf("joueur N°%d, entrez le nombre de déplacements necessaire pour arriver au robot:\n", i);
 
 
@@ -640,8 +641,22 @@ int main() {
     }
   }
 
-  printf("Le gagnant est le joueur %d avec %d points\n", joueur_gagnant+1, max_point);
-// NEW
+    // Seconde boucle pour trouver tous les joueurs avec le score maximum
+  printf("Le(s) gagnant(s) est/sont le(s) joueur(s) ");
+  int first = 1; // Pour gérer la virgule entre les gagnants
+  for (int i = 0; i < nbr_joueur; i++) {
+    if (liste_point_joueur[i] == max_point) {
+      if (!first) {
+        printf(", ");
+      }
+      printf("%d", i + 1);
+      first = 0;
+    }
+  }
+  printf(" avec %d points\n", max_point);
+//La boucle parcourt chaque joueur.Pour chaque joueur ayant le score maximum (liste_point_joueur[i] == max_point), on vérifie la condition if (!first) :!first signifie "si first est faux", donc "si first vaut 0". Cela vérifie si nous avons déjà affiché un gagnant avant.Si first est 0 (faux), cela signifie qu'au moins un gagnant a déjà été affiché, donc nous imprimons une virgule avant d'afficher le prochain gagnant : printf(", ");.Ensuite, nous affichons le numéro du joueur (printf("%d", i + 1);).Après avoir affiché un gagnant, nous mettons first à 0 (first = 0;), indiquant que le premier joueur a été affiché.
+  return 0;
+
   libererTableau2D(tab, ligne);
 
 }
