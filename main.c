@@ -1,7 +1,7 @@
 #include "header.h"
 
 
-void clear_buffer() {
+void nettoyer_cache() {
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
@@ -19,12 +19,12 @@ void intialisationJeu(int *difficulte, int* nbr_joueur) {
     //printf(",entrer %d\n", *nbr_joueur);
     if (*nbr_joueur <= 1 || test != 1) {
       printf("entrer un nombre supérieur à 1\n");
-      clear_buffer();
+      nettoyer_cache();
     }
 // si tout se passe bien retourne 1 sinon retourne 0 donc recommence la boucle
   } while (*nbr_joueur <= 1 || test != 1);
 
-  clear_buffer();
+  nettoyer_cache();
 
 
 
@@ -35,12 +35,12 @@ void intialisationJeu(int *difficulte, int* nbr_joueur) {
 
     if (*difficulte < 1 || *difficulte > 4 || test != 1) {
       printf("entrez un nombre supérieur à 1 et inférieur à 4 (1 : 2 mintues, 2 : 1 minutes, 3 : 30 secondes , 4 : 15 secondes)\n");
-      clear_buffer();
+      nettoyer_cache();
     }
     // si tout se passe bien retourne 1 sinon retourne 0 donc recommence la boucle
   } while (*difficulte < 1 || *difficulte > 4 || test != 1);
 
-  clear_buffer();
+  nettoyer_cache();
 
 }
 
@@ -445,13 +445,13 @@ void DeroulementPartie(int difficulte, int  temps, int nbr_joueur, char** tab, J
       test = scanf("%d", &liste_vrai_joueur[i-1]);
       if (liste_vrai_joueur[i-1] <= 0 || test != 1) {
         printf("Nombre de déplacement invalide, recommencez\n");
-        clear_buffer();
+        nettoyer_cache();
 
       }
 
     } while (liste_vrai_joueur[i-1] <= 0 || test != 1);
 
-    clear_buffer();
+    nettoyer_cache();
 
   }
 
@@ -493,13 +493,13 @@ void DeroulementPartie(int difficulte, int  temps, int nbr_joueur, char** tab, J
       if ((mouvement != 'z' && mouvement != 'q' && mouvement != 's' && mouvement != 'd') || test != 1) {
 printf("Mauvais déplacment\n");
         // peut pas faire autre mouvement que z q s d
-        clear_buffer();
+        nettoyer_cache();
         
       }
     } while((mouvement != 'z' && mouvement != 'q' && mouvement != 's' && mouvement != 'd') || test != 1);
     // peut pas faire autre mouvement que z q s d
 
-    clear_buffer();
+    nettoyer_cache();
 
     DeplacerRobot(tab, joueur_tab ,joueur_aleatoire , mouvement, ligne, colonne, &cache, cible_tab, &plus_petit_chemin);
 
