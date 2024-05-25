@@ -7,9 +7,9 @@ void nettoyerCache() {
   }
 }
 
-void libererTableau2D(int **tab, int col) {
+void libererTableau2D(char **tab, int ligne) {
     // Libérer chaque ligne du tableau
-    for (int i = 0; i < col; i++) {
+    for (int i = 0; i < ligne; i++) {
         free(tab[i]);
     }
     // Libérer le tableau de pointeurs
