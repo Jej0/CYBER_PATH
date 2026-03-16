@@ -5,7 +5,7 @@
 ---
 
 <a name="english-version"></a>
-### Cyber Path: Procedural Tactical Engine
+# Cyber Path: Procedural Tactical Engine
 
 Cyber Path is a terminal based puzzle game featuring a procedural engine where robots must navigate a grid to reach targets. The core challenge lies in the sliding physics. Robots move in a straight line until they hit an obstacle like a wall or another robot.
 
